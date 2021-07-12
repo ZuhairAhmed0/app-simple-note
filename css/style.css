@@ -1,0 +1,273 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    
+}
+header i {
+    color: tomato;
+}
+.contianer {
+    position: fixed;
+}
+article {
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #fff0f5;
+    width: 92%;
+    padding: 20px; 
+    opacity: 0;
+    z-index: 1;
+    top: 30px;
+}
+.manage {
+    background-color: #fff;
+}
+.opacity {
+    opacity: 1;
+    z-index: 5;
+}
+.manage .addManage {
+    opacity: 0;
+    padding: 20px 10px;
+    border-bottom: 0.5px solid #ebebeb;
+    margin: 0 auto;
+}
+.manage .addManage input, 
+.manage .addManage button{
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    outline: 0;
+    width: 60%;
+}
+.manage .addManage input:focus {
+    border: 1px solid tomato;
+}
+.manage .addManage button {
+    background: tomato;
+    width: 70px;
+    color: #fff;
+    width: 20%;
+}
+article .note {
+    background-color: #fff;
+    padding: 4px 10px;
+    margin-block: 10px;
+    max-height: 150px;
+    min-height: 80px;
+    overflow-y: auto;
+    position: relative;
+    border: 0.7px solid #ddd;
+    border-radius: 6px;
+}
+article .note h4 {
+    margin: 3px;
+    
+}
+article .note p {
+    color: #444;
+    margin: 8px 0;
+}
+.note .i {
+    text-align: right;
+}
+.note .time {
+    border-top: 0.5px solid #999;
+    padding: 5px 0;
+    font-size: .5rem;
+}
+.note .more {
+    background: #f7f7f7;
+    width: fit-content;
+    border-radius: 10px;
+    height: 75px;
+    line-height: 2;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+    display: none;
+}
+.note .more p {
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px;
+    color: #555;
+    font-size: .8rem
+}
+.manageCat {
+    padding: 15px;
+    border-bottom: 0.5px solid #ebebeb;
+    border-top: 0.5px solid #ebebeb;
+}
+.manageCat button{
+    border-radius: 50%;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    color: tomato;
+}
+.manageCat span {
+    color: #555;
+    margin-left: 5px;
+}
+.overly {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 3;
+    text-align: center;
+    color: #888;
+}
+.text {
+    background-color: #fff;
+    position: fixed;
+    width: 95%;
+    height: 100%;
+    text-align: left;
+    padding: 20px;
+    z-index: 5;
+    left: 0;
+    top: 100%;
+}
+.text .head {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    height: 7%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+.text .head input {
+    text-decoration: underline;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    color: tomato;
+    font-weight: 700;
+}
+.text .head button {
+    border: none;
+    outline: none;
+    color: tomato;
+    font-weight: 600;
+    text-transform: uppercase;
+    background:0;
+}
+.text .body {
+    height: 93%;
+    overflow: hidden;
+}
+.text .body input {
+    width: 80%;
+    height: 7%;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    outline: none;
+    margin: 9px 0;
+    overflow: auto;
+}
+.text .body textarea {
+    width: 80%;
+    height: 65%;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+}
+
+aside {
+    position: fixed;
+    width: 85%;
+    height: 100vh;
+    left: -200%;
+    top: 0;
+    background-color: #eee;
+    overflow-x: auto;
+    z-index: 5;
+}
+aside h3 {
+    text-align: right;
+    padding-right: 20px;
+}
+aside section {
+    padding: 20px;
+    height: 2rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+aside section div {
+    display: flex;
+    gap: 15px;
+}
+aside section div span {
+    color: #555
+}
+main {
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    z-index: 9999;
+}
+main button {
+    background: tomato;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem
+}
+
+@media (min-width: 700px ) {
+    aside {
+        left: 0;
+        width: 30%;
+    }
+    article {
+        left: 30%;
+        width: 67%;
+    }
+    article .note .time {
+        font-size: 0.7rem;
+    }
+    .overly {
+        left: 60%;
+        top: 40%;
+        transform: translate(-50%, -40%);
+        width: 70%;
+    }
+    .text {
+        left: 30%;
+        width: 67%;
+    }
+    header {
+        left: 30%;
+    }
+}
