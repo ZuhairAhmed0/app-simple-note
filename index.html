@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <i class="fa fa-bars" id="bars"></i>
+        <strong>All Notes</strong>
+    </header>
+    <div class="overly">
+        <p>No notes</p>
+        <p>The notes you add will appear here</p>
+    </div>
+    <div class="text">
+        <div class="head">
+            <input type="text" value="Uncategorised">
+            <button>Save</button>
+        </div>
+        <div class="body">
+            <input type="text" name="" placeholder="Title" dir="auto">
+            <textarea placeholder="Notes" dir="auto" id="notes"></textarea>
+        </div>
+    </div>
+    <div class="contianer">
+        <article class="allNotes">
+        </article>
+        <article class="recycle_pin">
+        </article>
+        <article class="manage">
+            <div class="manageCat">
+                <button><i class="fa fa-plus"></i></button>
+                <span>Add category</span>
+            </div>
+            <div class="addManage">
+                <input type="text" value="" />
+                <button class="add">add</button>
+            </div>
+        </article>
+    </div>
+    <main>
+        <button><i class="fa fa-plus"></i></button>
+    </main>
+    <aside>
+        <h3 class="close"><i class="fas fa-times"></i></h3>
+        <section class="all_notes">
+            <div>
+                <i class="fa fa-bookmark"></i>
+                <span>All notes</span>
+            </div>
+            <samp>0</samp>
+        </section>
+        <section class="recycle">
+            <div>
+                <i class="far fa-trash-alt"></i>
+                <span>Recycle bin</span>
+            </div>
+            <samp>0</samp>
+        </section>
+        <section>
+            <strong>Categories</strong>
+            <i class="fas fa-caret-down 7x"></i>
+        </section>
+        <section class="uncategorised uncate">
+            <div>
+                <i class="fa fa-book-open"></i>
+                <span>Uncategorised</span>
+            </div>
+            <samp>0</samp>
+        </section>
+        <section class="uncategorised" id="manage">
+            <div>
+                <i class="fa fa-pen"></i>
+                <span>Manage Categories</span>
+            </div>
+        </section>
+    </aside>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
