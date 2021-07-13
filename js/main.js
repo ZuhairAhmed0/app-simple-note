@@ -24,53 +24,55 @@ const $recycle = document.querySelector('.recycle');
 const caret_down = document.querySelector('.fa-caret-down')
 let mobile_view = window.matchMedia("(min-width: 700px)");
 const now = new Date();
-
 function openAside() {
-    if (mobile_view.matches == false) {
+    if(mobile_view.matches == false) {
         aside.style = 'left: -200%; transition: 1s';
     }
 }
-
-
 bars.addEventListener('click', function(e) {
     aside.style = 'left: 0; transition: 1s';
 })
-clos.addEventListener('click', openAside);
+clos.addEventListener('click',openAside);
 article.addEventListener('click', openAside);
 overly.addEventListener('click', openAside);
 recycle_pin.addEventListener('click', openAside);
 manage.addEventListener('click', openAside);
-
 AddNote.addEventListener('click', function(){
     writeNote.style = 'top: 30px; transition: 0.2s';
     bodyNote.focus();
 });
-
 const options = {year: 'numeric', month: 'short', day: 'numeric',} 
 const fulltime = new Intl.DateTimeFormat('en-SD', options).format(now);
 all_notes.textContent = 0;
 uncategorised.textContent = 0;
 recycle.textContent = 0;
+
 saveNote.addEventListener('click', function(){
     if (titleNote.value != '' || bodyNote.value != '') {
         const html = `
-                <div class="note">
-                    <div class="i">
-                        <i class="fa fa-ellipsis-v"></i>
-                    </div>
-                    <div>
-                        <h4 dir="auto">${titleNote.value}</h4>
-                        <p dir="auto">${bodyNote.value}</p>
-                    </div>
-                    <div class="time">
-                        Modified: ${fulltime},${now.getHours()}:${now.getMinutes()} / Created: ${fulltime}, ${now.getHours()}:${now.getMinutes()}
-                    </div>
-                    <div class="more">
-                        <p class="edit">Edit</p>
-                        <p class="delete">Delete</p>
-                    </div>
-                </div>`;
+            <div class="note">
+                <div class="i">
+                    <i class="fa fa-ellipsis-v"></i>
+                </div>
+                <div>
+                    <h4 dir="auto">${titleNote.value}</h4>
+                    <p dir="auto">${bodyNote.value}</p>
+                </div>
+                <div class="time">
+                    Modified: ${fulltime},
+                    ${now.getHours()}:
+                    ${now.getMinutes()} / 
+                    Created: ${fulltime},
+                    ${now.getHours()}:
+                    ${now.getMinutes()}
+                </div>
+                <div class="more">
+                    <p class="edit">Edit</p>
+                    <p class="delete">Delete</p>
+                </div>
+            </div>`;
         article.insertAdjacentHTML('afterbegin', html);
+        save.call(notes)
         all_notes.textContent++;
         uncategorised.textContent++;
         overly.style.display = 'none';
@@ -80,8 +82,12 @@ saveNote.addEventListener('click', function(){
     writeNote.style = 'top: 100%; transition: 0.2s';
 });
 
-let caret = true;
 
+
+
+
+
+let caret = true;
 caret_down.addEventListener('click', () => {
     if(caret == true) {
         uncategori.forEach(a => a.style = 'transition: .5s; opacity: 0; transform: translateY(5rem);')
@@ -91,7 +97,6 @@ caret_down.addEventListener('click', () => {
         caret = true;
     }
 })
-
 let $more = true;
 article.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-ellipsis-v') && $more == true) {
@@ -131,7 +136,6 @@ article.addEventListener('click', (e) => {
         bodyNote.value = e.target.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent;
     }
 })
-
 manage.addEventListener('click', function () {
     addManage.style = 'opacity: 1; transition: 0.3s';
 })
@@ -154,12 +158,13 @@ $recycle.addEventListener('click', function (e) {
     manage.classList.remove('opacity');
     header.textContent = this.firstElementChild.lastElementChild.textContent;
 })
-notes.addEventListener('click', function (e) {
+function save() {
     article.classList.add('opacity');
     recycle_pin.classList.remove('opacity');
     manage.classList.remove('opacity');
     header.textContent = this.firstElementChild.lastElementChild.textContent;
-})
+}
+notes.addEventListener('click', save)
 uncate.addEventListener('click', function (e) {
     article.classList.add('opacity');
     recycle_pin.classList.remove('opacity');
