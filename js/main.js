@@ -24,20 +24,23 @@ const $recycle = document.querySelector('.recycle');
 const caret_down = document.querySelector('.fa-caret-down')
 let mobile_view = window.matchMedia("(min-width: 700px)");
 const now = new Date();
+
 function openAside() {
-    if(mobile_view.matches == false) {
+    if (mobile_view.matches == false) {
         aside.style = 'left: -200%; transition: 1s';
-   }
+    }
+}
 
 
 bars.addEventListener('click', function(e) {
     aside.style = 'left: 0; transition: 1s';
 })
 clos.addEventListener('click', openAside);
-$recycle.addEventListener('click', openAside);
 article.addEventListener('click', openAside);
-notes.clos.addEventListener('click', openAside);
-manage.clos.addEventListener('click', openAside);
+overly.addEventListener('click', openAside);
+recycle_pin.addEventListener('click', openAside);
+manage.addEventListener('click', openAside);
+
 AddNote.addEventListener('click', function(){
     writeNote.style = 'top: 30px; transition: 0.2s';
     bodyNote.focus();
